@@ -111,7 +111,7 @@ const Login = () => {
 
           {/* Submit Button */}
           <button type="submit" className=" bg-green-700 py-2 my-3 rounded-xl text-white w-full">
-            {"Register"}
+            {"Login"}
           </button>
         </form>
 

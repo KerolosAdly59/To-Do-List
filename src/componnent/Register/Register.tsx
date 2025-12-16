@@ -5,10 +5,13 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../../../firebase"; 
 import { doc, setDoc } from "firebase/firestore";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 
 
 const Register = () => {
+
+  const navegate = useNavigate()
 
 
     const schemaRegister = z.object({
@@ -65,12 +68,13 @@ const Register = () => {
       createdAt: new Date(),
     });
 
-    console.log("User registered:", user);
      toast.success("Success", {
         position: "top-center",
 
       }
     )
+          navegate("/login")
+
 
 
   } catch (error: any) {
