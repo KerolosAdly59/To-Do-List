@@ -1,0 +1,70 @@
+import { Link, useNavigate } from "react-router-dom"
+import useAuth from "../UseAuth/UseAuth";
+import { useEffect, useState } from "react";
+import image from "./../../../public/download.jpg"
+
+const Navbar = () => {
+
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem("themeCalculator") || "light";
+  })
+  const { user, logout } = useAuth();
+  const navegate = useNavigate()
+
+
+
+  const handleLogout = async () => {
+    await logout();         
+    navegate("/login")
+    console.log("hhhhhhhhhhh");
+
+  };
+
+  useEffect(() => {
+
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+    localStorage.setItem("themeToDoList", theme)
+  }, [theme])
+  return (
+
+
+    <div className="navbar bg-slate-200 dark:bg-slate-800  shadow-sm px-28">
+      <div className="flex-1">
+        <Link to={"/"} className="btn btn-ghost text-3xl font-bold text-black dark:text-white hover:bg-transparent border-0">To-Do List</Link>
+      </div>
+      <div className=' mb-3 me-36 '>
+                <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className='bg-slate-600 dark:bg-gray-800 px-4 py-0.5 rounded-xl dark:shadow-[1px_2px_5px_#0a0a0a,-1px_-3px_5px_#2a2a2a] shadow-[5px_5px_10px_#bababa,-5px_-5px_10px_#ffffff] active:shadow-[inset_5px_5px_10px_#bababa,inset_-5px_-5px_10px_#ffffff] cursor-pointer'><i className="fa-solid fa-circle-half-stroke"></i></button>
+              </div>
+      <div className="flex gap-2">
+        <div className="dropdown dropdown-end">
+          <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar border-0">
+            <div className="w-10 rounded-full  ">
+              <img
+                alt="Tailwind CSS Navbar component"
+                src={image} />
+
+            </div>
+          </div>
+          <ul
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+            {user ? <li><button onClick={() => handleLogout()} >Logout</button></li> : <> <li><Link to="/register" className="justify-between">
+              Register
+
+            </Link></li>
+
+              <li><Link to="/login" className="justify-between">
+                Login
+
+              </Link></li></>}
+          </ul>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default Navbar
