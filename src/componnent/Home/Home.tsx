@@ -5,10 +5,10 @@ import Tasks from "../Tasks/Tasks";
 import useAuth from "../UseAuth/UseAuth";
 
 export type TaskType = {
-  id: string; 
+  id: string;
   title: string;
   done: boolean;
-  createdAt: any; 
+  createdAt: any;
   updatedAt?: any;
   userId: string;
 };
@@ -105,17 +105,38 @@ const Home = () => {
         </div>
 
         <div className="md:flex md:justify-between md:items-center mb-3">
-          <div>
-            <button onClick={() => setFilter("all")} className="bg-white dark:bg-slate-800 dark:border-2 dark:border-white py-1 px-3 rounded-3xl hover:bg-gray-400 cursor-pointer">
+          <div className="flex flex-wrap gap-3">
+            <button
+              onClick={() => setFilter("all")}
+              className={`py-1 px-3 rounded-3xl cursor-pointer
+      ${filter === "all"
+                  ? "bg-gray-400 dark:bg-gray-600"
+                  : "bg-white dark:bg-slate-800 dark:border-2 dark:border-white hover:bg-gray-400"}`}
+            >
               All
             </button>
-            <button onClick={() => setFilter("active")} className="bg-white dark:bg-slate-800 dark:border-2 dark:border-white py-1 px-3 rounded-3xl hover:bg-gray-400 mx-3 cursor-pointer">
+
+            <button
+              onClick={() => setFilter("active")}
+              className={`py-1 px-3 rounded-3xl cursor-pointer
+      ${filter === "active"
+                  ? "bg-gray-400 dark:bg-gray-600"
+                  : "bg-white dark:bg-slate-800 dark:border-2 dark:border-white hover:bg-gray-400"}`}
+            >
               Active
             </button>
-            <button onClick={() => setFilter("done")} className="bg-white dark:bg-slate-800 dark:border-2 dark:border-white mt-2 py-1 px-3 rounded-3xl hover:bg-gray-400 cursor-pointer">
+
+            <button
+              onClick={() => setFilter("done")}
+              className={`py-1 px-3 rounded-3xl cursor-pointer
+      ${filter === "done"
+                  ? "bg-gray-400 dark:bg-gray-600"
+                  : "bg-white dark:bg-slate-800 dark:border-2 dark:border-white hover:bg-gray-400"}`}
+            >
               Done
             </button>
           </div>
+
           <div>
             <button onClick={clearDoneTasks} className="bg-white dark:bg-slate-800 dark:border-2 dark:border-white py-1 px-3 rounded-3xl hover:bg-gray-400 cursor-pointer">
               Clear Done
