@@ -6,7 +6,7 @@ import image from "./../../../public/download.jpg"
 const Navbar = () => {
 
   const [theme, setTheme] = useState(() => {
-    return localStorage.getItem("themeCalculator") || "light";
+    return localStorage.getItem("themeToDoList") || "light";
   })
   const { user, logout } = useAuth();
   const navegate = useNavigate()
@@ -52,12 +52,12 @@ const Navbar = () => {
           </div>
           <ul
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-            {user ? <li><button onClick={() => handleLogout()} >Logout</button></li> : <> <li><Link to="/register" className="justify-between">
+            {user ? <li><button  onPointerDown={() => handleLogout()} >Logout</button></li> : <> <li><Link to="/register"   onPointerDown={() => navegate("/register")} className="justify-between">
               Register
 
             </Link></li>
 
-              <li><Link to="/login" className="justify-between">
+              <li><Link to="/login"   onPointerDown={() => navegate("/login")} className="justify-between">
                 Login
 
               </Link></li></>}
