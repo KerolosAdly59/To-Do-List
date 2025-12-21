@@ -80,7 +80,7 @@ const Home = () => {
   }, [user, loading]);
 
   return (
-    <div className="flex justify-center items-center py-5 bg-white text-black  dark:bg-slate-950">
+    <div className="flex justify-center items-center h-screen bg-white text-black  dark:bg-slate-950">
       <div className="md:w-[45%] w-72 bg-gray-200 dark:bg-slate-800 dark:text-white px-5 rounded-2xl shadow-[20px_20px_40px_rgba(0,0,0,0.3)]">
         {/* Header */}
         <div className="flex justify-between items-center w-full my-3">

@@ -16,7 +16,6 @@ const Navbar = () => {
   const handleLogout = async () => {
     await logout();
     navegate("/login")
-    console.log("hhhhhhhhhhh");
 
   };
 
@@ -65,6 +64,7 @@ const Navbar = () => {
         </div>
       </div>
       </div>
+      
     </div>
   )
 }
