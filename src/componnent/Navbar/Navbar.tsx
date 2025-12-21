@@ -14,7 +14,7 @@ const Navbar = () => {
 
 
   const handleLogout = async () => {
-    await logout();         
+    await logout();
     navegate("/login")
     console.log("hhhhhhhhhhh");
 
@@ -32,15 +32,16 @@ const Navbar = () => {
   return (
 
 
-    <div className="navbar bg-slate-200 dark:bg-slate-800  shadow-sm px-28">
-      <div className="flex-1">
-        <Link to={"/"} className="btn btn-ghost text-3xl font-bold text-black dark:text-white hover:bg-transparent border-0">To-Do List</Link>
+    <div className="navbar bg-slate-200 dark:bg-slate-800  ps-20  pt-3 flex gap-4  flex-wrap shadow-sm px-28">
+      <div className=" flex-1  ">
+        <Link to={"/"} className="btn btn-ghost text-[30px] whitespace-nowrap pt-4 md:pt-0 md:text-[40px] font-bold text-black dark:text-white hover:bg-transparent border-0">To-Do List</Link>
       </div>
-      <div className=' mb-3 me-36 '>
-                <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className='bg-slate-600 dark:bg-gray-800 px-4 py-0.5 rounded-xl dark:shadow-[1px_2px_5px_#0a0a0a,-1px_-3px_5px_#2a2a2a] shadow-[5px_5px_10px_#bababa,-5px_-5px_10px_#ffffff] active:shadow-[inset_5px_5px_10px_#bababa,inset_-5px_-5px_10px_#ffffff] cursor-pointer'><i className="fa-solid fa-circle-half-stroke"></i></button>
-              </div>
-      <div className="flex gap-2">
-        <div className="dropdown dropdown-end">
+      <div className="flex justify-between items-center w-1/3">
+        <div className=' mb-1 mx-4   '>
+        <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className='bg-slate-600 dark:bg-gray-800 px-4 py-0.5 rounded-xl dark:shadow-[1px_2px_5px_#0a0a0a,-1px_-3px_5px_#2a2a2a] shadow-[5px_5px_10px_#bababa,-5px_-5px_10px_#ffffff] active:shadow-[inset_5px_5px_10px_#bababa,inset_-5px_-5px_10px_#ffffff] cursor-pointer'><i className="fa-solid fa-circle-half-stroke"></i></button>
+      </div>
+      <div className="flex  gap-2">
+        <div className="dropdown dropdown-center md:dropdown-end">
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar border-0">
             <div className="w-10 rounded-full border-3 border-blue-700 ">
               <img
@@ -62,6 +63,7 @@ const Navbar = () => {
               </Link></li></>}
           </ul>
         </div>
+      </div>
       </div>
     </div>
   )

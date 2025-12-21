@@ -46,9 +46,9 @@ const Tasks = ({ tasks, editTask }: TasksProps) => {
       {tasks.map((task) => (
         <div
           key={task.id}
-          className="flex justify-between items-center my-4 bg-white dark:bg-slate-700  rounded-2xl py-2 px-3 shadow-sm hover:shadow-md transition-shadow duration-200"
+          className="flex flex-wrap justify-between items-center my-4 bg-white dark:bg-slate-700  rounded-2xl py-2 px-3 shadow-sm hover:shadow-md transition-shadow duration-200"
         >
-          <div className="flex items-center gap-3 w-[80%]  ">
+          <div className="flex items-center gap-0 md:gap-3 w-[80%]  ">
             <input
               type="checkbox"
               checked={task.done}
@@ -86,7 +86,7 @@ const Tasks = ({ tasks, editTask }: TasksProps) => {
           </div>
 
           <button
-            className="bg-red-100 py-1.5 px-3 rounded-2xl text-red-700 text-[15px] dark:bg-slate-300 dark:text-red-600 dark:border-2 dark:border-white shrink-0 h-fit hover:bg-red-200 transition-colors"
+            className="bg-red-100 py-1.5 px-3 rounded-2xl mt-2 mx-auto text-red-700 text-[15px] dark:bg-slate-300 dark:text-red-600 dark:border-2 dark:border-white shrink-0 h-fit hover:bg-red-200 transition-colors cursor-pointer"
             onClick={() => handleDelete(task.id)}
           >
             Delete
