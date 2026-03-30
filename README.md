@@ -1,6 +1,6 @@
 # 📝 To-Do List App
 
-A modern and secure **To-Do List Web Application** built with **React**.
+A modern and secure **To-Do List Web Application** built with **React** and **Firebase**.
 This project allows users to create, manage, and track tasks with authentication and password reset functionality via Gmail.
 
 ---
@@ -13,10 +13,10 @@ This project allows users to create, manage, and track tasks with authentication
 
 ## 🎯 Overview
 
-This project is a fully functional **To-Do List application** with user authentication and secure task management.
+This project is a fully functional **To-Do List application** with user authentication and secure task management using **Firebase**.
 Users can sign up, log in, create tasks, mark them as completed, and reset their password using Gmail if they forget it.
 
-Built using **React**, this project demonstrates practical use of authentication flows and email integration.
+Firebase handles authentication, user management, and real-time data storage for tasks.
 
 ---
 
@@ -24,7 +24,7 @@ Built using **React**, this project demonstrates practical use of authentication
 
 ### 🛡️ Authentication
 
-* Secure user login and registration
+* Secure user login and registration via Firebase
 * Email-based account verification
 * Reset password functionality via Gmail
 
@@ -32,7 +32,8 @@ Built using **React**, this project demonstrates practical use of authentication
 
 * Add, edit, and delete tasks
 * Mark tasks as complete or incomplete
-* Tasks stored securely for each user
+* Tasks are stored in Firebase Firestore per user
+* Real-time updates across sessions
 
 ### 📱 Responsive UI
 
@@ -42,7 +43,8 @@ Built using **React**, this project demonstrates practical use of authentication
 ### ⚡ Performance & UX
 
 * Fast and interactive user experience
-* Real-time updates with React state management
+* Real-time data sync with Firebase
+* State management using React Hooks and Context API
 
 ---
 
@@ -50,7 +52,7 @@ Built using **React**, this project demonstrates practical use of authentication
 
 * ⚛️ React
 * 🎨 Tailwind CSS
-* 🔐 Authentication & Password Reset via Gmail
+* 🔐 Firebase Authentication & Firestore
 * 🧠 React Hooks (useState, useEffect, useContext)
 * 🚀 Vercel (Deployment)
 
@@ -58,12 +60,13 @@ Built using **React**, this project demonstrates practical use of authentication
 
 ## 📂 Project Structure
 
-```bash id="l9z3rt"
+```bash id="t4k3pr"
 src/
 │── components/      # Reusable components (Login, Register, TaskItem, etc.)
 │── context/         # Authentication & global state
 │── pages/           # Main pages (Login, Register, Dashboard)
-│── services/        # API calls (Auth, Tasks)
+│── services/        # Firebase API calls
+│── firebase.js      # Firebase configuration and initialization
 │── App.jsx          # Main application logic
 │── index.jsx        # React DOM render
 │── styles/          # Tailwind global styles
@@ -101,7 +104,7 @@ npm start
 
 ## 🔐 Environment Variables
 
-Create a `.env` file in the root folder and add your Gmail credentials and API keys:
+Create a `.env` file in the root folder and add your Firebase credentials:
 
 ```env id="b7t2kc"
 REACT_APP_FIREBASE_API_KEY=your_firebase_api_key
@@ -112,7 +115,7 @@ REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
 REACT_APP_FIREBASE_APP_ID=your_firebase_app_id
 ```
 
-> ⚠️ Make sure to configure Firebase Authentication to enable email/password sign-in.
+> ⚠️ Make sure Firebase Authentication has **Email/Password** enabled and Firestore database rules allow authenticated access.
 
 ---
 
@@ -127,11 +130,11 @@ REACT_APP_FIREBASE_APP_ID=your_firebase_app_id
 
 ## 🧠 What This Project Demonstrates
 
-* Building secure applications with React
-* Authentication and password reset flows
+* Building secure applications with React and Firebase
+* Authentication and password reset flows via Gmail
+* Real-time data management with Firebase Firestore
 * State management with React Hooks and Context API
 * Responsive UI design with Tailwind CSS
-* Email integration via Gmail
 
 ---
 
